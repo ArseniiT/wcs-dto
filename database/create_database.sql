@@ -1,0 +1,7 @@
+CREATE DATABASE  IF NOT EXISTS `wcsdto` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `wcsdto`;
+
+CREATE USER IF NOT EXISTS 'dto'@'localhost' IDENTIFIED BY 'dto';
+
+GRANT ALL PRIVILEGES ON `wcsdto`.* TO 'dto'@'localhost';
+FLUSH PRIVILEGES;
