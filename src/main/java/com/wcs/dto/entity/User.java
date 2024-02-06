@@ -5,7 +5,7 @@ import java.util.List;
 
 
 @Entity
-public class Trainer {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -14,13 +14,13 @@ public class Trainer {
     private int age;
     private int level;
 
-    @OneToMany(mappedBy = "trainer", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Pokemon> pokemons;
 
-    public Trainer() {
+    public User() {
     }
 
-    public Trainer(String name, int age, int level, List<Pokemon> pokemons) {
+    public User(String name, int age, int level, List<Pokemon> pokemons) {
         this.name = name;
         this.age = age;
         this.level = level;

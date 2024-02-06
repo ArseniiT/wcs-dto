@@ -16,8 +16,8 @@ public class Pokemon {
     private Attribute attribute;
 
     @ManyToOne
-    @JoinColumn(name = "trainer_id")
-    private Trainer trainer;
+    @JoinColumn(name = "user_id")
+    private User user;
 
     public Pokemon() {
     }
@@ -60,11 +60,11 @@ public class Pokemon {
         this.attribute = attribute;
     }
 
-    public Trainer getTrainer() {
-        return trainer;
+    public User getUser() {
+        return user;
     }
 
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
+    public void setUser(User user) {
+        this.user = user;
     }
 }
