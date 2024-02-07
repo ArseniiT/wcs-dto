@@ -4,9 +4,7 @@ import com.wcs.dto.dto.UserDTO;
 import com.wcs.dto.entity.User;
 import com.wcs.dto.mapper.UserMapper;
 import com.wcs.dto.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,5 +25,15 @@ public class UserController {
         return users.stream()
                 .map(UserMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{id}")
+    public UserDTO getUserById(@PathVariable Long id) {
+        return userService.getUserById(id);
+    }
+
+    @PostMapping
+    public UserDTO addUser(@RequestBody User user) {
+        return userService.addUser(user);
     }
 }

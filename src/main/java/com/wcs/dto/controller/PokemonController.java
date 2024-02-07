@@ -4,10 +4,7 @@ import com.wcs.dto.dto.PokemonDTO;
 import com.wcs.dto.entity.Pokemon;
 import com.wcs.dto.mapper.PokemonMapper;
 import com.wcs.dto.service.PokemonService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -28,5 +25,15 @@ public class PokemonController {
         return pokemons.stream()
                 .map(PokemonMapper::toDTO)
                 .collect(Collectors.toList());
+    }
+
+    @GetMapping("/{name}")
+    public List<PokemonDTO> getPokemonByName(@PathVariable String name) {
+        return pokemonService.getPokemonByName(name);
+    }
+
+    @PostMapping
+    public PokemonDTO addPokemon(@RequestBody Pokemon pokemon) {
+        return pokemonService.addPokemon(pokemon);
     }
 }
